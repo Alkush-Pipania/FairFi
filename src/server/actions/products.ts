@@ -27,9 +27,14 @@ export async function createProduct(unsafeData: z.infer<typeof ProductDetailsSch
 
 export async function deleteProduct(id : string){
   const { userId } = await auth()
+  const errorMessage = "There was an error deleting your product"
   if(userId == null){
-    return {error : true , message : "There was an error deleting your product"}
+    return {error : true , message : errorMessage}
   }
 
   const isSuccess = await deleteProductDb({id , userId})
+
+  return {
+   error: !isSuccess ,
+   message : isSuccess ? "Successfully deleted your Product": errorMessage}
 }
