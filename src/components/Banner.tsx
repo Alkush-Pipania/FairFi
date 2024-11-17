@@ -72,7 +72,7 @@ export function Banner({
             className={`${prefix}easy-ppp-branding`}
             href={`${env.NEXT_PUBLIC_SERVER_URL}`}
           >
-            Powered by Easy PPP
+            Powered by FairFi
           </a>
         )}
       </div>
